@@ -1,4 +1,4 @@
-package com.taf.tasktrackerapi.dto;
+package com.taf.tasktrackerapi.api.dto;
 
 import lombok.Getter;
 import lombok.NonNull;

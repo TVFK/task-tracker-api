@@ -19,7 +19,7 @@ public class TaskState {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "nam1e", unique = true)
     private String name;
 
     @Column(name = "ordinal")
