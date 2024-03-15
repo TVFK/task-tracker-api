@@ -1,8 +1,8 @@
 package com.taf.tasktrackerapi.services;
 
+import com.taf.tasktrackerapi.api.exceptions.BadRequestException;
 import com.taf.tasktrackerapi.store.entities.Project;
 import com.taf.tasktrackerapi.store.repositories.ProjectRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +27,10 @@ public class ProjectService {
 
     @Transactional
     public void save(Project project){
-        projectRepository.save(project);
+        projectRepository.findByName(project.getName()).ifPresent(project1 -> {
+                throw new BadRequestException("project already exists");
+        });
+
     }
 
     @Transactional

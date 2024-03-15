@@ -1,10 +1,7 @@
 package com.taf.tasktrackerapi.store.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -30,4 +27,8 @@ public class Project {
 
     @OneToMany(mappedBy = "project")
     private List<TaskState> taskStates = new ArrayList<>();
+
+    public Project(String name){
+        this.name = name;
+    }
 }
